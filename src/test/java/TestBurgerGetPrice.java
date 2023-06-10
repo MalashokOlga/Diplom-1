@@ -1,7 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-import praktikum.*;
+import praktikum.Bun;
+import praktikum.Burger;
+import praktikum.Ingredient;
+import praktikum.IngredientType;
 
 import java.util.ArrayList;
 import java.util.List;
