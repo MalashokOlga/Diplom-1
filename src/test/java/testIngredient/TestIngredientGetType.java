@@ -1,3 +1,5 @@
+package testIngredient;
+
 import org.junit.Test;
 import praktikum.Ingredient;
 import praktikum.IngredientType;

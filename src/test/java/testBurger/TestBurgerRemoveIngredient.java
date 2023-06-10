@@ -1,3 +1,5 @@
+package testBurger;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -11,23 +13,29 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestBurgerSetBuns {
-    Bun bun = new Bun("name", 100);
+public class TestBurgerRemoveIngredient {
+    Bun bun = Mockito.mock(Bun.class);
     Ingredient firstIngredient = Mockito.mock(Ingredient.class);
     Ingredient secondIngredient = Mockito.mock(Ingredient.class);
-    public List<Ingredient> ingredients = new ArrayList<>();
+
+    public static List<Ingredient> ingredients = new ArrayList<>();
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
+
     @Test
-    public void testSetBuns() {
+    public void testRemoveIngredient() {
         ingredients.add(firstIngredient);
         ingredients.add(secondIngredient);
         Burger burger = new Burger();
-        burger.setBuns(bun);
+        burger.bun = bun;
         burger.ingredients = ingredients;
-        assertEquals(bun, burger.bun);
+        burger.removeIngredient(0);
+        List<Ingredient> expectedIngredients = ingredients;
+        expectedIngredients.remove(0);
+        List<Ingredient> actualIngredients = burger.ingredients;
+        assertEquals(actualIngredients, expectedIngredients);
     }
 }
